@@ -11,20 +11,20 @@ module.exports = function getwebpackConfig(webpackConfig) {
 
   if (!process.env.Mode) {
     webpackConfig.output.library = pkgJson.systemName;
-    webpackConfig.output.libraryTarget = 'amd';
+    webpackConfig.output.libraryTarget = 'umd';
     webpackConfig.module.rules.unshift({
       parser: { system: false },
     });
     webpackConfig.output.publicPath = `http://0.0.0.0:${fetkJson.port}/${pkgJson.systemName}/`;
-    webpackConfig.output.filename = '[name]-[chunkhash].js';
+    webpackConfig.output.filename = '[name].js';
     webpackConfig.externals = [
-      /^react$/,
-      /^react\/lib.*/,
-      /^react-dom$/,
-      /.*react-dom.*/,
-      /^single-spa$/,
-      /^antd$/,
-      /^d3$/
+      // /^react$/,
+      // /^react\/lib.*/,
+      // /^react-dom$/,
+      // /.*react-dom.*/,
+      // /^single-spa$/,
+      // /^antd$/,
+      // /^d3$/
     ];
     webpackConfig.plugins = webpackConfig.plugins.filter((plugin) => {
       if (plugin instanceof HtmlWebpackPlugin ||

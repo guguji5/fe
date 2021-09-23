@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import singleSpaReact from 'single-spa-react';
-import { auth } from '@pkgs/Auth';
-import App from './app';
+import React from "react";
+import ReactDOM from "react-dom";
+import singleSpaReact from "single-spa-react";
+import { auth } from "@pkgs/Auth";
+import App from "./app";
 
 function domElementGetter() {
-  let el = document.getElementById('ecmc-layout-container');
+  let el = document.getElementById("container");
   if (!el) {
-    el = document.createElement('div');
-    el.id = 'ecmc-layout-container';
+    el = document.createElement("div");
+    el.id = "ecmc-layout-container";
     document.body.appendChild(el);
   }
 
@@ -25,14 +25,8 @@ const reactLifecycles = singleSpaReact({
   domElementGetter,
 });
 
-export const bootstrap = [
-  reactLifecycles.bootstrap,
-];
+export const bootstrap = [reactLifecycles.bootstrap];
 
-export const mount = [
-  reactLifecycles.mount,
-];
+export const mount = [reactLifecycles.mount];
 
-export const unmount = [
-  reactLifecycles.unmount,
-];
+export const unmount = [reactLifecycles.unmount];
